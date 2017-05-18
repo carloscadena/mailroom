@@ -17,7 +17,7 @@
 
 ```
 while in_thank_you:
-	prompts user for full name or list
+	prompts user for full name or list 
 	if input == 'list':
 		print_donor_names():
 	elif input in donor_list():
@@ -28,9 +28,6 @@ while in_thank_you:
 	else:
 		add_name_to_donor_list(input)
 ```
-
-
-
 
 ##def add_name_to_donor_list(name)
 ```
@@ -60,7 +57,9 @@ return (input is float or input is int) and input > 0
 
 ##def create_report():
 ```
+
 logic that formats the donor list information:
+
 donor name, total_donated, number_of_donations, average donation amount
 thank_or_report()
 ```
