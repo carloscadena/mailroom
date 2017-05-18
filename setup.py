@@ -1,7 +1,9 @@
 from setuptools import setup
 
 dependencies = ['pytest', 'pytest-cov']
-extra_packages = ['tox']
+extra_packages = {
+    'testing': ['tox']
+}
 
 setup(
     name='mailroom',
