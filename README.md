@@ -29,9 +29,6 @@ while in_thank_you:
 		add_name_to_donor_list(input)
 ```
 
-
-
-	
 ##def add_name_to_donor_list(name)
 ```
   ask_for_donation_amount(name)
@@ -60,7 +57,9 @@ return (input is float or input is int) and input > 0
 
 ##def create_report():
 ```
-logic that formats the donor list information: 
+
+logic that formats the donor list information:
+
 donor name, total_donated, number_of_donations, average donation amount
 thank_or_report()
 ```
