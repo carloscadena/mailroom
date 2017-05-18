@@ -27,19 +27,25 @@ while in_thank_you:
 		thank_or_report()
 	else:
 		add_name_to_donor_list(input)
+```
 
 
 
 	
 ##def add_name_to_donor_list(name)
+```
   ask_for_donation_amount(name)
-  
+```
+
 ##def create_email(name)
+```
 print('Thank you, {} for your donation of ${}'.format(name,donation[name][len(donation[name]-1)]))
 create formatted string resembling an email thanking the donor along with donation amount
 thank_or_report()
+```
 
 ##def ask_for_donation_amount(name)
+```
 donation = input('Enter dollar amount: ')
 if is_valid_donation(donation):
 	donor_list[name] = donation
@@ -50,8 +56,11 @@ else:
 ##def is_valid_donation(input)
 
 return (input is float or input is int) and input > 0
+```
 
 ##def create_report():
+```
 logic that formats the donor list information: 
 donor name, total_donated, number_of_donations, average donation amount
 thank_or_report()
+```
