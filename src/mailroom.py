@@ -32,7 +32,7 @@ def thank_or_report(prompt=PROMPTS['thank_or_report']):
     if selection == '1':
         send_thank_you()
     elif selection == '2':
-        create_report()
+        print(create_report(donor_list))
     elif selection == 'q':
         sys.exit()
     else:
@@ -48,10 +48,10 @@ def thank_or_report(prompt=PROMPTS['thank_or_report']):
 #     return switcher.get(selection, thank_or_report(PROMPTS_WRONG_INPUT['thank_or_report']))
 
 
-def send_thank_you():
+def send_thank_you():  # pragma: no cover
     user_input = input_handler(PROMPTS['send_thank_you'])
     if user_input == 'list':
-        print_donor_names()
+        print(print_donor_names(donor_list))
     elif user_input == 'q':
         thank_or_report()
     elif user_input in donor_list:
@@ -60,17 +60,17 @@ def send_thank_you():
         add_name_to_donor_list(user_input)
 
 
-def print_donor_names():
+def print_donor_names(donor_list):
     """
     print donor names to command line
     """
     roster = """------->[ Donors |\n"""
     for donor in donor_list.keys():
         roster += """------->[ {} |\n""".format(donor)
-    print(roster)
+    return roster
 
 
-def add_name_to_donor_list(name):
+def add_name_to_donor_list(name): # pragma: no cover
     """
     adds new donor to list of donors
     """
@@ -93,7 +93,7 @@ def create_email(name, amount):
      '''.format(name, amount)
 
 
-def ask_for_a_donation_amount(name, prompt=PROMPTS['ask_for_a_donation_amount']):
+def ask_for_a_donation_amount(name, prompt=PROMPTS['ask_for_a_donation_amount']):  # pragma: no cover
     """
     prompts for donor's donation amount
     """
@@ -101,7 +101,7 @@ def ask_for_a_donation_amount(name, prompt=PROMPTS['ask_for_a_donation_amount'])
     checks_donation(name, user_donation)
 
 
-def checks_donation(name, amount):
+def checks_donation(name, amount):  # pragma: no cover
     """
     checks the donation amount
     """
@@ -117,6 +117,7 @@ def add_donation(name, amount):
     add donation to donation_list
     """
     donor_list[name].append(float(amount))
+    return True
 
 
 def is_valid_donation(amount):
@@ -130,7 +131,7 @@ def is_valid_donation(amount):
         return False
 
 
-def input_handler(prompt):
+def input_handler(prompt): #pragma: no cover
     """
     responsible for handling input
     """
@@ -138,14 +139,14 @@ def input_handler(prompt):
     return user_response
 
 
-def create_report():
+def create_report(donor_list): #pragma: no cover
     """
     creates the report
     """
-    print(prepare_donor_list_for_report(donor_list))
+    return prepare_donor_list_for_report(donor_list)
 
 
-def prepare_donor_list_for_report(a_donor_list):
+def prepare_donor_list_for_report(a_donor_list): # pragma: no cover
     """
     Calculates total amount contributions, number of contributions, 
     and avg. donation amount for each donor
@@ -163,23 +164,22 @@ def prepare_donor_list_for_report(a_donor_list):
                 len(a_donor_list[donor]),
                 sum(a_donor_list[donor])]
 
-    sort_by_donation_amount(contributions_calculations)
+    return sort_by_donation_amount(contributions_calculations)
 
 
-def sort_by_donation_amount(contributions):
+def sort_by_donation_amount(contributions): # pragma: no cover
     contributions = sorted(
         contributions.items(),
         key=lambda x: x[1], reverse=True)
-    creates_table_for_report(contributions)
+    return creates_table_for_report(contributions)
 
 
-def creates_table_for_report(contributions):
+def creates_table_for_report(contributions): # pragma: no cover
     table = ('='*10).join([' Name ', ' Total Amount ', ' # of Contributions ', ' Avg. Donation Amount'])
     table += '\n'
     table += ('-'*len(table))
     table += '\n'
 
-    print(contributions)
 
     for donor in contributions:
         if len(str(donor[1][0])) > 6:
@@ -205,11 +205,11 @@ def creates_table_for_report(contributions):
         # table += (' '*10).join(('{} ${:.2f} ${:.2f} ${:.2f}'.format(donor[0], donor[1][0], donor[1][1], donor[1][2])).split())
         table += '\n'
 
-    print(table)
+    return table
 
 
 
-def send_email(name, amount):
+def send_email(name, amount): # pragma: no cover
     """
     prints the email to the console
     """
