@@ -213,7 +213,8 @@ def send_email(name, amount): # pragma: no cover
     """
     prints the email to the console
     """
-    print(create_email(name, amount))
+    
+    print(create_email(name, sum(donor_list[name])))
     thank_or_report()
 
 
