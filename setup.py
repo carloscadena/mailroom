@@ -16,5 +16,5 @@ setup(
     package_dir={'': 'src'},
     install_requires=dependencies,
     extras_require=extra_packages,
-    entry_points={'console_scripts': ['mailroom = mailroom:main']}
+    entry_points={'console_scripts': ['mailroom = mailroom:thank_or_report']}
       )
